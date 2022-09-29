@@ -213,6 +213,18 @@ p{
   max-width: 90%;
 }
 
+.carousel-control-prev-icon{
+  background-color: #000000;
+  border-radius: 15%;
+  padding: 1.2em;
+}
+
+.carousel-control-next-icon{
+  background-color: #000000;
+  border-radius: 15%;
+  padding: 1.2em;
+}
+
 .bloco-1 {
   order: 0;
   /* flex-grow: 0;
