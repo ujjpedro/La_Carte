@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
     <title>La Carte</title>
+    <link rel="shortcut icon" href="img/icone.png">
     <link rel="stylesheet" href="css/estilos.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <style>
@@ -110,17 +111,17 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img src="img/pizza.jpg">
+          <img src="img/sobremesa.jpg">
           <div class="carousel-caption">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
+            <h5>Terça-Feira</h5>
+            <p>Sobremesas a partir de R$ 15,99</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="img/pizza.jpg">
+          <img src="img/bebida.jpg">
           <div class="carousel-caption">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
+            <h5>Quarta-Feira</h5>
+            <p>Na compra de uma pizza GG ganhe um refrigerante 1,5L</p>
           </div>
         </div>
       </div>

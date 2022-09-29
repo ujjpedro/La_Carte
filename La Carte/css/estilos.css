@@ -178,6 +178,23 @@
 .categorias > div {
   flex: 1 1 7.50em;
   margin: 0.6em;
+  margin-top: 2em;
+  width: 1em;
+  height: 5em;
+}
+
+.categorias > div > a > img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.categorias > div > img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .textoCategoria {
@@ -223,6 +240,17 @@ p{
   background-color: #000000;
   border-radius: 15%;
   padding: 1.2em;
+}
+
+.carousel-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-item{
+  width: 25em;
+  height: 15em;
 }
 
 .bloco-1 {
