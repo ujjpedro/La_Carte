@@ -56,10 +56,10 @@
         <a class="ftlogo" href="../../index.php"><img src="../../img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; "></a>
         <ul>
         <li class="espacamentoSino">
-        <a class="notificacao" href="#"><img src="../../img/notificacao.png" style="width: 1.1em; margin-top: 4px; "></a>
+        <a class="notificacao" href="#"><img src="../../img/notificacao.png" style="width: 1.1em; margin-top: 1em; "></a>
         </li>
         <li class="espacamentoCar">
-        <a class="carrinho" href="#"><img src="../../img/carrinho.png" style="width: 1em; margin-top: 4.2px; "></a>
+        <a class="carrinho" href="#"><img src="../../img/carrinho.png" style="width: 1em; margin-top: 1em; "></a>
         </li>
         </ul>
         <div class="mobile-menu">
