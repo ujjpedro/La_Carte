@@ -257,6 +257,12 @@ p{
   border-radius: 5px;
 }
 
+.carousel-caption h2, p{
+  font-family: 'bellerose';
+  align-items: center;
+  color: #ffffff;
+}
+
 .bloco-1 {
   order: 0;
   /* flex-grow: 0;

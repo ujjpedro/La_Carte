@@ -106,28 +106,22 @@
         <div class="carousel-item active">
           <img src="img/pizza.jpg">
           <div class="carousel-caption">
-            <center>
-              <h5>Segunda-Feira</h5>
+              <h2>Segunda-Feira</h2>
               <p>Todas as pizzas em dobro</p>
-            </center>
           </div>
         </div>
         <div class="carousel-item">
           <img src="img/sobremesa.jpg">
           <div class="carousel-caption">
-            <center>
-                <h5>Terça-Feira</h5>
+                <h2>Terça-Feira</h2>
                 <p>Sobremesas a partir de R$ 15,99</p>
-            </center>
           </div>
         </div>
         <div class="carousel-item">
           <img src="img/bebida.jpg">
           <div class="carousel-caption">
-            <center>
-                <h5>Quarta-Feira</h5>
+                <h2>Quarta-Feira</h2>
                 <p>Na compra de uma pizza GG ganhe um refrigerante 1,5L</p>
-            </center>
           </div>
         </div>
       </div>
