@@ -202,6 +202,12 @@
   justify-content: center;
 }
 
+.textoCategoria{
+  font-family: 'bellerose';
+  align-items: left;
+  color: #D97904;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -218,12 +224,6 @@
   padding: 16px;
   height: 300px;
   /* width: 400px; - usamos no flex-shrink*/
-}
-
-p{
-  font-family: 'bellerose';
-  align-items: left;
-  color: #D97904;
 }
 
 #carouselExampleCaptions{
