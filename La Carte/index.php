@@ -35,14 +35,14 @@
         <!-- <a class="logo" href="index.php" style="font-family: austria; margin-left: 1em;">Eco Menu</a> -->
         <!-- <a class="ftlogo" href="#"><img src="img/eco.png" style="width: 5em; margin-top: 4.2px; margin-left: 1.5em; "></a> -->
         <a class="ftlogo" href="#"><img src="img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; "></a>
-        <ul>
-        <li class="espacamentoSino">
-        <a class="notificacao" href="#"><img src="img/notificacao.png" style="width: 1.1em; margin-top: 4px; "></a>
-        </li>
-        <li class="espacamentoCar">
-        <a class="carrinho" href="#"><img src="img/carrinho.png" style="width: 1em; margin-top: 4.2px; "></a>
-        </li>
-        </ul>
+          <ul>
+            <li class="espacamentoSino">
+              <a class="notificacao" href="#"><img src="img/notificacao.png" style="width: 1.1em; margin-top: 1em; "></a>
+            </li>
+            <li class="espacamentoCar">
+              <a class="carrinho" href="#"><img src="img/carrinho.png" style="width: 1em; margin-top: 1em; "></a>
+            </li>
+          </ul>
         <div class="mobile-menu">
           <div class="line1"></div>
           <div class="line2"></div>
