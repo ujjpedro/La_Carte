@@ -4,11 +4,6 @@
     padding: 0;
 }
 
-@font-face {
-    font-family: "tang";
-    src: url(../fonts/tangerine/Tangerine_Regular.ttf);
-}
-
 header{
     background: #e0e0e0;
     color: white;
@@ -139,8 +134,8 @@ nav{
             <center>
             <ul>
                 <li><a href="#" class="mesa">Mesa 1</a></li>
-                <li><a href="#" class="menu" style="margin-top: 5em;">Avaliar</a></li>
-                <li><a href="#" class="menu" style="margin-top: 5em;">Reclamações <br>e comentários</a></li>
+                <li><a href="avaliar.php" class="menu" style="margin-top: 5em;">Avaliar</a></li>
+                <li><a href="comentarios.php" class="menu" style="margin-top: 5em;">Reclamações <br>e comentários</a></li>
                 <hr>
                 <li><a href="../controle/controleLogin.php" class="menu" style="margin-top: 1em;">Sair</a></li>
             </ul>

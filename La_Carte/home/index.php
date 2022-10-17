@@ -27,10 +27,7 @@
         background-size: cover;
         height: 92vh;
       }
-      /* @font-face {
-        font-family: "austria";
-        src: url(fonts/over/KGStartingOver.ttf); */
-        @font-face {
+      @font-face {
         font-family: "bellerose";
         src: url(../fonts/bellerose/Bellerose.ttf);
       }

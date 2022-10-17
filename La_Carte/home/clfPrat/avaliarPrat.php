@@ -1,5 +1,5 @@
 <?php
-    include_once "../classes/autoload.php";
+    $prato = isset($_GET['nome']) ? $_GET['nome'] : "";
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/cad.css">
-    <title>Nos Avalie!</title>
+    <link rel="stylesheet" href="../../css/cad.css">
+    <title>Avaliar o Prato</title>
     <style>
         .estrelas{
             margin-left: 20%;
@@ -51,8 +51,9 @@
                     <br>
                     <div class="lin"></div> 
                     <br>
-                    <form method="POST" action="agradecimento2.php">
+                    <form method="POST" action="agradecerP.php">
                     <div class="form">
+                        <input hidden type="text" name="prato" value="<?php echo $prato?>">
                         <div class="estrelas">
                             <input type="radio" id="vazio" name="estrela" value="" checked>
 

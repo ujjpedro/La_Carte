@@ -124,9 +124,9 @@ nav{
 </style>
     <header>
         <a class="ftlogo" href="#"><img src="../img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; display: inline-block;"></a>
-        <a class="notificacao" href="#"><img src="../img/notificacao.png" style="width: 1.1em; padding-bottom: 30px; margin-left: 5em; display: inline-block;"></a>
+        <a class="notificacao" href="#"><img src="../img/notificacao.png" style="width: 1.1em; padding-bottom: 30px; margin-left: 6.5em; display: inline-block;"></a>
         <a class="carrinho" href="#"><img src="../img/carrinho.png" style="width: 1em; padding-bottom: 30px; margin-left: 1em; display: inline-block;"></a>
-        <input type="checkbox" id="check">
+        <!-- <input type="checkbox" id="check">
             <label for="check">
                 <img src="../img/menu.svg" alt="" style="width: 2em; padding-bottom: 24px; cursor: pointer; display: inline-block;">
             </label>
@@ -137,6 +137,6 @@ nav{
                 <li><a href="#" class="menu" style="margin-top: 5em;">Avaliar</a></li>
                 <li><a href="#" class="menu" style="margin-top: 5em;">Reclamações <br>e comentários</a></li>
             </ul>
-            </center>
+            </center> -->
         </nav>
     </header>

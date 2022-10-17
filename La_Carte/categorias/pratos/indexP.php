@@ -30,11 +30,22 @@
         background-size: cover;
         height: 92vh;
       }
+
+      img{
+        border-radius: 6px;
+      }
       
       .mesa{
         border: 0.1em solid #FF9045;
         border-radius: 0.2em;
         padding: 0.5em;
+      }
+
+      .av{
+        font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+        font-size: 1em;
+        text-align: center;
+        color: #FFFAFA;
       }
 
       @font-face {
@@ -69,15 +80,17 @@
         $consulta = $pdo->query("SELECT * FROM pratos WHERE id = $id"); 
             while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
     ?>
-    </section><div class="imgP">
-      <section class="categorias">
-        <div>
-          <img src="<?php echo "../".$linha['imagem']?>">
-          <br>
-        </div>
-      </section>
-    </div>
-    <p class="textoCategoria"><?php echo $linha['nome']; } ?></p>
+    </section>
+      <div class="imgP">
+        <section class="categorias">
+          <div>
+            <img src="<?php echo "../".$linha['imagem']?>"><br> 
+            <p class="av">Gostaria de avaliar <br> &ensp;
+             este prato? <a href="../../home/clfPrat/avaliarPrat.php?nome=<?php echo $linha['nome']?>" style="font-size: 1em; color: #D97904;">Avaliar</a></p>
+          </div>
+        </section>
+      </div>
+      <p class="textoCategoria"><?php echo $linha['nome']; } ?></p>
 
     <?php
         $pdo = Conexao::getInstance(); 
@@ -86,14 +99,19 @@
     ?>
         
     <div class="descricao">
-        <h3>Descrição:</h3>
-        <p><?php echo $linha['descricao'];?></p>
-        <h3>Ingredientes:</h3>
-        <p><?php echo $linha['ingredientes'];?></p>
-        <h3>Preço:</h3>
-        <p><?php echo "R$ ". $linha['preco'];?></p>
-        <h3>Quantidade:</h3>
-        <p id="prd1">1</p>
+        <h4 style="display: inline-block;">Descrição:</h4>
+          <p style="display: inline-block; font-size: 1em;"><?php echo $linha['descricao'];?></p>
+        <br>
+
+        <h4 style="display: inline-block;">Ingredientes:</h4>
+          <p style="display: inline-block; font-size: 1em;"><?php echo $linha['ingredientes'];?></p>
+        <br>
+
+        <h4 style="display: inline-block;">Preço:</h4>
+          <p style="display: inline-block; font-size: 1em;"><?php echo "R$ ". $linha['preco'];?></p>
+
+        <h4>Quantidade:</h4>
+          <h4 id="prd1">1</h4>
     </div>
       <div class="btn">
         <button class="plus" onclick="addFuncao('+1')" class="prd1"><img src="../../img/plus.svg" alt=""></button>
