@@ -39,9 +39,10 @@
         public function setGid($gId){ $this->gId = $gId;}
 
         public function inserir(){
-            $sql = 'INSERT INTO pratos (imagem, ingredientes, descricao, preco, categorias_id, gerente_id) 
-            VALUES(:imagem, :ingredientes, :descricao, :preco, :categorias_id, :gerente_id)';
+            $sql = 'INSERT INTO pratos (imagem, nome, ingredientes, descricao, preco, categorias_id, gerente_id) 
+            VALUES(:imagem, :nome, :ingredientes, :descricao, :preco, :categorias_id, :gerente_id)';
             $parametros = array(":imagem" => $this->getImg(),
+                                ":nome" => $this->getNome(),
                                 ":ingredientes"=> $this->getIng(),
                                 ":descricao"=> $this->getDesc(),
                                 ":preco"=> $this->getPreco(),
@@ -52,9 +53,10 @@
         }
 
         public function editar(){
-            $sql = 'UPDATE pratos SET imagem = :imagem, ingredientes = :ingredientes, descricao = :descricao, preco = :preco, categorias_id = :categorias_id, gerente_id = :gerente_id 
+            $sql = 'UPDATE pratos SET imagem = :imagem, nome = :nome, ingredientes = :ingredientes, descricao = :descricao, preco = :preco, categorias_id = :categorias_id, gerente_id = :gerente_id 
             WHERE id = :id';
             $parametros = array(":imagem" => $this->getImg(),
+                                ":nome" => $this->getNome(),
                                 ":ingredientes"=> $this->getIng(),
                                 ":descricao"=> $this->getDesc(),
                                 ":preco"=> $this->getPreco(),

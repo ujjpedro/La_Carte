@@ -29,8 +29,8 @@
                         <label for="senha">Senha:</label><br>
                             <input type="password" placeholder="Insira sua senha" name="senha" id="senha" required>
                     </div>
+                    <center>
                         <br><br>
-                        <center>
                         <button name="acao" id="acao" type="submit" value="salvar" class="save">Entrar</button>
                         <br><br>
                         <p>Não possui cadastro? <a href="cadastro/cadCliente.php">Cadastre-se</a></p>
@@ -38,6 +38,7 @@
                     </form>
                 </div>
             </div>
+        </div>
     </section>
 </body>
 </html>

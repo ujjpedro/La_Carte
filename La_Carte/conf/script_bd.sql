@@ -46,10 +46,11 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `menu`.`categorias` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `imagem` VARCHAR(200) NULL,
   `nome` VARCHAR(45) NULL,
   `gerente_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_categorias_gerente1_idx` (`gerente_id` ASC),
+  INDEX `fk_categorias_gerente1_idx` (`gerente_id` ASC) VISIBLE,
   CONSTRAINT `fk_categorias_gerente1`
     FOREIGN KEY (`gerente_id`)
     REFERENCES `menu`.`gerente` (`id`)
@@ -63,6 +64,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `menu`.`pratos` (
   `idPrat` INT NOT NULL AUTO_INCREMENT,
+  `imagem` VARCHAR(200) NULL,
   `nome` VARCHAR(45) NULL,
   `ingredientes` VARCHAR(45) NULL,
   `descricao` VARCHAR(200) NULL,
@@ -70,8 +72,8 @@ CREATE TABLE IF NOT EXISTS `menu`.`pratos` (
   `categorias_id` INT NOT NULL,
   `gerente_id` INT NOT NULL,
   PRIMARY KEY (`idPrat`),
-  INDEX `fk_pratos_categorias1_idx` (`categorias_id` ASC),
-  INDEX `fk_pratos_gerente1_idx` (`gerente_id` ASC),
+  INDEX `fk_pratos_categorias1_idx` (`categorias_id` ASC) VISIBLE,
+  INDEX `fk_pratos_gerente1_idx` (`gerente_id` ASC) VISIBLE,
   CONSTRAINT `fk_pratos_categorias1`
     FOREIGN KEY (`categorias_id`)
     REFERENCES `menu`.`categorias` (`id`)
@@ -108,8 +110,8 @@ CREATE TABLE IF NOT EXISTS `menu`.`pedidos` (
   `cozinheiro_id` INT NOT NULL,
   `cliente_id` INT NOT NULL,
   PRIMARY KEY (`idPed`),
-  INDEX `fk_pedidos_cozinheiro1_idx` (`cozinheiro_id` ASC),
-  INDEX `fk_pedidos_cliente1_idx` (`cliente_id` ASC),
+  INDEX `fk_pedidos_cozinheiro1_idx` (`cozinheiro_id` ASC) VISIBLE,
+  INDEX `fk_pedidos_cliente1_idx` (`cliente_id` ASC) VISIBLE,
   CONSTRAINT `fk_pedidos_cozinheiro1`
     FOREIGN KEY (`cozinheiro_id`)
     REFERENCES `menu`.`cozinheiro` (`id`)
@@ -130,8 +132,8 @@ CREATE TABLE IF NOT EXISTS `menu`.`pedidos_has_pratos` (
   `pedidos_idPed` INT NOT NULL,
   `pratos_idPrat` INT NOT NULL,
   PRIMARY KEY (`pedidos_idPed`, `pratos_idPrat`),
-  INDEX `fk_pedidos_has_pratos_pratos1_idx` (`pratos_idPrat` ASC),
-  INDEX `fk_pedidos_has_pratos_pedidos1_idx` (`pedidos_idPed` ASC),
+  INDEX `fk_pedidos_has_pratos_pratos1_idx` (`pratos_idPrat` ASC) VISIBLE,
+  INDEX `fk_pedidos_has_pratos_pedidos1_idx` (`pedidos_idPed` ASC) VISIBLE,
   CONSTRAINT `fk_pedidos_has_pratos_pedidos1`
     FOREIGN KEY (`pedidos_idPed`)
     REFERENCES `menu`.`pedidos` (`idPed`)
