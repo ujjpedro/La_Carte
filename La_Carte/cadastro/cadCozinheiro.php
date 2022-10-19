@@ -15,7 +15,7 @@
         $id = isset($_GET['id']) ? $_GET['id'] : "";
     if ($id > 0)
         $cozinheiro = new Cozinheiro("", "", "", "", "", "");
-        $dados = $cozinheiro->listar(1, $id);
+        $dados = $gerente->listar(1, $id);
     }
 ?>
 
@@ -24,43 +24,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/cad.css">
     <title><?php echo $title ?></title>
 </head>
 <body>
-    <br>
-    <center>
-        <h3>Insira seus dados</h3><hr>
-            <form method="post" action="../acao/acaoCozinheiro.php">
+    <section class="content-site" style="margin: 30% 10%;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1 class="text-center">Cadastre-se</h1>
+                        <br>
+                        <div class="lin"></div> 
+                        <br>
+                        <div class="form">
+                            <form method="POST" action="../acao/acaoCozinheiro.php">
+                                <input readonly type="hidden" name="id" id="id" value="<?php if ($acao == "editar") echo $dados[0]['id']; 
+                                else echo 0; ?>">
+    
+                                <label for="nome">Nome:</label><br>
+                                    <input require="true" type="text" name="nome" id="nome" placeholder="insira seu nome" 
+                                    value="<?php if ($acao == "editar") echo $dados[0]['nome'];?>">
+                                    <br><br>
 
-            <input readonly type="hidden" name="id" id="id" value="<?php if ($acao == "editar") echo $dados[0]['id']; 
-            else echo 0; ?>">
-                
-            <p>Nome:</p>
-                <input require="true" type="text" name="nome" id="nome" placeholder="insira seu nome" 
-                value="<?php if ($acao == "editar") echo $dados[0]['nome'];?>"><br>
+                                <label for="dataNasc">Data de Nascimento:</label><br>
+                                    <input required="true" name="dataNasc" id="dataNasc" type="date" required="true"
+                                    value="<?php if ($acao == "editar") echo $dados[0]['dataNasc'];?>">
+                                    <br><br>   
+                                    
+                                <label for="cpf">CPF:</label><br>
+                                    <input require="true" type="text" name="cpf" id="cpf" placeholder="insira seu cpf" 
+                                    value="<?php if ($acao == "editar") echo $dados[0]['cpf'];?>">
+                                    <br><br>
 
-            <p>Data de Nascimento:</p>
-                <input required="true" name="dataNasc" id="dataNasc" type="date" required="true"
-                value="<?php if ($acao == "editar") echo $dados[0]['dataNasc'];?>"><br>   
-                
-            <p>CPF:</p>
-                <input require="true" type="text" name="cpf" id="cpf" placeholder="insira seu cpf" 
-                value="<?php if ($acao == "editar") echo $dados[0]['cpf'];?>"><br>
-            
-            <p>Email:</p>
-                <input require="true" type="text" name="email" id="email" placeholder="insira seu email" 
-                value="<?php if ($acao == "editar") echo $dados[0]['email'];?>"><br>
-                
-            <p>Senha:</p>
-                <input require="true" type="text" name="senha" id="senha" placeholder="insira sua senha" 
-                value="<?php if ($acao == "editar") echo $dados[0]['senha'];?>"><br>
-            <br>
-            <hr>
-            <br>
-                <button name="acao" value="salvar" id="acao" type="submit">Salvar</button>
-            </form>
-            <br>
-    </center>
+                                <label for="email">Email:</label><br>
+                                    <input require="true" type="text" name="email" id="email" placeholder="insira seu email" 
+                                    value="<?php if ($acao == "editar") echo $dados[0]['email'];?>">
+                                    <br><br>
+                                    
+                                <label for="senha">Senha:</label><br>
+                                    <input require="true" type="text" name="senha" id="senha" placeholder="insira sua senha" 
+                                    value="<?php if ($acao == "editar") echo $dados[0]['senha'];?>">
+                                    <br><br>
+                                    </div>
+                            <br><br>
+                            <center>
+                            <button name="acao" id="acao" type="submit" value="salvar" class="save">Salvar</button>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+        </section>
 </body>
 </html>

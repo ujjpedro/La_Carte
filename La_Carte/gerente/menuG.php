@@ -58,7 +58,7 @@ ul{
     padding: 5px;
     list-style: none;
     position: relative;
-    margin-top: 90%;
+    margin-top: 50%;
     width: 100%;
     display: inline-block;
 }
@@ -121,8 +121,7 @@ nav{
         <nav>
             <center>
             <ul>
-                <!-- <li><a href="#" class="menu">Cadastre-se</a></li> -->
-                <li><a href="edit.php" class="menu" style="margin-top: 5em;">Editar Categorias</a></li>
+                <li><a href="edit.php" class="menu" style="margin-top: 5em;">Editar <br> Categorias</a></li>
                 <li><a href="editP.php" class="menu" style="margin-top: 5em; margin-right: 0.5em;">Editar Pratos</a></li>
                 <hr>
                 <li><a href="controle/controleLoginG.php" class="menu" style="margin-top: 1em;">Sair</a></li>

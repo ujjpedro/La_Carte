@@ -15,15 +15,63 @@ select{
     border-radius: 4px;
     border: none;
     background-color: white;
-    color: #D97904;
+    color: #590202;
     padding-left: 5px;
-    width: 15em;
+    width: 89%;
+}
+
+select:hover{
+    background-color: #D97904;
+}
+
+input{
+    border-radius: 4px;
+    border: none;
+    background-color: #FFFAFA;
+    color: #590202;
+    padding-left: 5px;
+    width: 89%;
+    align-content: center;
+}
+
+input::-webkit-input-placeholder{
+    color: #590202;
+    opacity: 65%;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file{
+    border-radius: 4px;
+    border: none;
+    background-color: #FFFAFA;
+    color: #590202;
+    padding-left: 5px;
+    width: 89%;
+    text-align: center;
+    font-weight: lighter;
+}
+
+.save{
+    background-color: #D97904;
+    border: 1px dotted #D97904;
+    padding: 6px;
+    color: white;
+    border-radius: 6px;
+    width: 80%;
+    font-weight: bold;
+}
+
+.save:hover{
+    background-color: #590202;
+    transition: all .5s;
 }
 
 .form{
     font-weight: bold;
     text-align: left;
-    margin-left: 10%;
 }
 
 .content-site{

@@ -18,7 +18,11 @@
             background-color: #FFFAFA;
             color: #D97904;
             padding-left: 2%;
-            align-content: center;
+        }
+
+        .form{
+            display: flex;
+            justify-content: center;
         }
 
         .save{
@@ -51,8 +55,9 @@
                     <div class="lin"></div> 
                     <br>
                     <form method="POST" action="https://api.staticforms.xyz/submit">
+                    
+                    <label for="message">Comentário/Reclamação:</label>                      
                     <div class="form">
-                        <label for="message">Comentário/Reclamação:</label><br>                        
                             <textarea name="message" placeholder="Escreva aqui..." id="message" cols="31" rows="6" required autocomplete="off"></textarea>
                     </div>
                         <br><br>

@@ -4,7 +4,7 @@
     require_once('../conf/Conexao.php');
 
     $title = "Pratos";
-    $imagem = isset($_FILES['imagem']) ? $_FILES['imagem'] : "";
+    $imagem = isset($_GET['imagem']) ? $_GET['imagem'] : "";
     $nome = isset($_GET['nome']) ? $_GET['nome'] : "";
     $ingredientes = isset($_GET['ingredientes']) ? $_GET['ingredientes'] : "";
     $descricao = isset($_GET['descricao']) ? $_GET['descricao'] : "";
@@ -19,22 +19,6 @@
         $prato = new Pratos("", "", "", "", "", "", "", "");
         $dados = $prato->listar(1, $id);
     }
-
-    $pathToSave = "pasta que vai ficar";
-    if ($_FILES) { // Verificando se existe o envio de arquivos.
-        if ($_FILES['imagem']) { // Verifica se o campo não está vazio.
-            $dir = $pathToSave; // Diretório que vai receber o arquivo.
-            $tmpName = $_FILES['imagem']['tmp_name']; // Recebe o arquivo temporário.
-            $name = $_FILES['imagem']['name']; // Recebe o nome do arquivo.
-            preg_match_all('/\.[a-zA-Z0-9]+/', $name, $extensao);
-            if (!in_array(strtolower(current(end($extensao))), array('.txt', '.pdf', '.doc', '.xls', '.xlms', '.docx', '.jpeg', 'png', '.jpg'))) {
-                echo('Permitido apenas arquivos doc, xls, pdf, docx, txt, txt, jpeg, png e jpg.');
-                die;
-            }
-            move_uploaded_file($tmpName, $dir.$name);
-            $documento = "pasta onde foi salvo".$_FILES['imagem']['name'];
-        }  
-    }
 ?>
 <html lang="pt-br">
 <head>
@@ -45,33 +29,6 @@
     <link rel="stylesheet" href="../css/cad.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <title><?php echo $title ?></title>
-    <style>
-        input{
-            border-radius: 4px;
-            border: none;
-            background-color: #FFFAFA;
-            color: #D97904;
-            padding-left: 5px;
-            width: 15em;
-            align-content: center;
-        }
-
-        .save{
-            background-color: #D97904;
-            border: 1px dotted #D97904;
-            padding: 6px;
-            color: white;
-            border-radius: 6px;
-            width: 100px;
-            font-weight: bold;
-            margin-left: 26%;
-        }
-
-        .save:hover{
-            background-color: #590202;
-            transition: all .5s;
-        }
-    </style>
 </head>
 <body>
     <section class="content-site" style="margin: 30% 10%;">
@@ -88,12 +45,13 @@
                             else echo 0; ?>">
 
                             <label for="imagem">Imagem:</label><br>
+                            <label for="imagem" class="file">Selecionar Imagem...</label><br>
                                 <input type="file" name="imagem" id="imagem" required 
-                                value="<?php if (isset($id)) echo $dados[0]['imagem'];?>">
-                            <br><br>
+                                value="<?php if ($acao == "editar") echo $dados[0]['imagem'];?>">
+                            <br>
 
                             <label for="nome">Nome:</label><br>
-                                <input require="true" type="text" name="nome" id="nome" placeholder="insira o nome" 
+                                <input require="true" type="text" name="nome" id="nome" placeholder="Insira o nome do prato" 
                                 value="<?php if ($acao == "editar") echo $dados[0]['nome'];?>">
                             <br><br>
 
@@ -136,13 +94,14 @@
                                     </option>
                                     <?php } ?>
                                 </select>
-                            <br><br><br>
+                        </div>
+                            <br><br>
+                            <center>
                             <button name="acao" value="salvar" id="acao" type="submit" class="save">Salvar</button>
+                            </center>
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
     </section>
 </body>
 </html>

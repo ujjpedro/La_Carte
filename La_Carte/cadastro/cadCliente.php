@@ -27,33 +27,6 @@
     <link rel="stylesheet" href="../css/cad.css">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <title><?php echo $title ?></title>
-    <style>
-        input{
-            border-radius: 4px;
-            border: none;
-            background-color: #FFFAFA;
-            color: #D97904;
-            padding-left: 5px;
-            width: 15em;
-            align-content: center;
-        }
-
-        .save{
-            background-color: #D97904;
-            border: 1px dotted #D97904;
-            padding: 6px;
-            color: white;
-            border-radius: 6px;
-            width: 100px;
-            font-weight: bold;
-            margin-left: 26%;
-        }
-
-        .save:hover{
-            background-color: #590202;
-            transition: all .5s;
-        }
-    </style>
 </head>
 <body>
     <section class="content-site" style="margin: 30% 10%;">
@@ -87,15 +60,15 @@
                                 
                             <label for="senha">Senha:</label><br>
                                 <input require="true" type="text" name="senha" id="senha" placeholder="insira sua senha" 
-                                value="<?php if ($acao == "editar") echo $dados[0]['senha'];?>">
-                                <br><br>
-                            <br>
-                                <button name="acao" value="salvar" id="acao" type="submit" class="save">Salvar</button>
+                                value="<?php if ($acao == "editar") echo $dados[0]['senha'];?>">    
+                        </div>
+                            <br><br>
+                            <center>
+                            <button name="acao" id="acao" type="submit" value="salvar" class="save">Salvar</button>
+                            </center>
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
     </section>
 </body>
 </html>

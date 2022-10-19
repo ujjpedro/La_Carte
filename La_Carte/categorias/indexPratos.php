@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php $title ?></title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="../css/hamburguer.css">
+    <link rel="stylesheet" href="../css/pratos.css">
     <style>
       body{
         background-color: #FFFAFA;

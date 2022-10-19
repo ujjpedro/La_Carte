@@ -11,32 +11,6 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/cad.css">
     <title>Login</title>
-    <style>
-        input{
-            border-radius: 4px;
-            border: none;
-            background-color: #FFFAFA;
-            color: #D97904;
-            padding-left: 5px;
-            width: 15em;
-            align-content: center;
-        }
-
-        .save{
-            background-color: #D97904;
-            border: 1px dotted #D97904;
-            padding: 6px;
-            color: white;
-            border-radius: 6px;
-            width: 100px;
-            font-weight: bold;
-        }
-
-        .save:hover{
-            background-color: #590202;
-            transition: all .5s;
-        }
-    </style>
 </head>
 <body>
     <section class="content-site">

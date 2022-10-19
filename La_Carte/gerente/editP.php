@@ -4,7 +4,7 @@
     $title = "Pratos";
     include_once "../conf/default.inc.php";
     require_once "../conf/Conexao.php";
-    $imagem = isset($_FILES['imagem']) ? $_FILES['imagem'] : "";
+    $imagem = isset($_GET['imagem']) ? $_GET['imagem'] : "";
     $nome = isset($_GET['nome']) ? $_GET['nome'] : "";
     $gerente = isset($_GET['gerente_id']) ? $_GET['gerente_id'] : "";
     $procurar = isset($_POST["procurar"]) ? $_POST["procurar"] : ""; 
@@ -19,7 +19,7 @@
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
     <title><?php echo $title ?></title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="../css/hamburguer.css">
+    <link rel="stylesheet" href="../css/pratos.css">
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> -->
     <script>
         function excluirRegistro(url){
@@ -36,6 +36,13 @@
       @font-face {
         font-family: "bellerose";
         src: url(../fonts/bellerose/Bellerose.ttf);
+      }
+
+      .add{
+        background-color: #590202;
+        opacity: 80%;
+        border-radius: 10px;
+        padding: 5%;
       }
     </style>
   </head>
@@ -60,6 +67,13 @@
           </a>
         </div>
         <?php } ?>
+        <div class="add">
+          <center>
+            <a href="../cadastro/cadPrato.php">
+              <img src="../img/plus.svg" class="text-center" style="width: 3em; height: 3em; opacity: 60%;">
+            </a>
+          </center>
+        </div>
       </section>
   </body>
 </html>
