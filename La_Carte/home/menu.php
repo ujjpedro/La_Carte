@@ -125,7 +125,7 @@ nav{
     <header>
         <a class="ftlogo" href="#"><img src="../img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; display: inline-block;"></a>
         <a class="notificacao" href="#"><img src="../img/notificacao.png" style="width: 1.1em; margin-left: 5em; display: inline-block;"></a>
-        <a class="carrinho" href="#"><img src="../img/carrinho.png" style="width: 1em; margin-left: 1em; display: inline-block;"></a>
+        <a href="carrinho.php"><img src="../img/carrinho.png" style="width: 1em; margin-left: 1em; display: inline-block;"></a>
         <input type="checkbox" id="check">
             <label for="check">
                 <img src="../img/menu.svg" alt="" style="width: 2em; cursor: pointer; display: inline-block;">
