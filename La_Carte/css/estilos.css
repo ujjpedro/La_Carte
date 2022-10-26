@@ -251,7 +251,7 @@
   /* width: 400px; - usamos no flex-shrink*/
 }
 
-#carouselExampleCaptions{
+/* #carouselExampleCaptions{
   max-width: 90%;
 }
 
@@ -286,6 +286,48 @@
   font-family: 'bellerose';
   align-items: center;
   color: #ffffff;
+} */
+
+.carousel{
+  display: flex;
+  align-items: center;
+  margin-top: 4em;
+  max-width: 25em;
+  /* width: 1000px; */
+  height: 200px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  /* scrollbar-color: #D97904; */
+  background: none;
+  padding: 2%;
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px 0 #D97904, 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+
+.carousel::-webkit-scrollbar {
+  background: none;
+  width: 1px;
+  border-radius: 5px;
+  /* border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; */
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background-color: #5b5b5b;
+  border-radius: 5px;
+}
+
+.fotosCarousel{
+  display: flex;
+  flex-direction: row;
+}
+
+.carousel img, a{
+  width: 200px;
+  height: 200px;
+  /* box-shadow: 0 0 0 15px black; */
+  margin-right: 50px;
 }
 
 .bloco-1 {

@@ -57,8 +57,20 @@
         <?php } ?>
       </section>
     
-<!-- Carousel
+<!-- Carousel -->
+    <center>
+      <div class="carousel">
+        <div class="fotosCarousel">
+          <a href=""><img src="../img/bebida.jpg"></a>
+          <a href=""><img src="../img/combo.jpg"></a>
+          <a href=""><img src="../img/hamburguer.jpg"></a>
+          <a href=""><img src="../img/pizza2.jpg"></a>
+          <a href=""><img src="../img/sobremesa.jpg"></a>
+        </div>
+      </div>
+    </center>
 
+      <!--
       <h1 class="promocoes">Promoções Diárias</h1>
       <br>
       <center id="carousel">
