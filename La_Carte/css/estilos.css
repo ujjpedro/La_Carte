@@ -292,87 +292,71 @@
   display: flex;
   align-items: center;
   margin-top: 4em;
-  max-width: 25em;
+  /* max-width: 25em; */
   /* width: 1000px; */
-  height: 200px;
+  height: 300px;
   overflow-x: scroll;
   overflow-y: hidden;
-  /* scrollbar-color: #D97904; */
-  background: none;
+  background-color: #590202;
   padding: 2%;
-  border-radius: 10px;
-  /* box-shadow: 0 4px 8px 0 #D97904, 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 
 .carousel::-webkit-scrollbar {
   background: none;
+  /* background-color: #414040; */
   width: 1px;
-  border-radius: 5px;
+  height: 5px;
+  /* margin-top: 1em; */
+  border-radius: 10px;
   /* border-top-right-radius: 5px;
   border-bottom-right-radius: 5px; */
 }
 
 .carousel::-webkit-scrollbar-thumb {
-  background-color: #5b5b5b;
-  border-radius: 5px;
+  background-color: #D97904;
+  border-radius: 10px;
 }
 
-.fotosCarousel{
+.fotosCarousel {
   display: flex;
   flex-direction: row;
 }
 
-.carousel img, a{
-  width: 200px;
-  height: 200px;
-  /* box-shadow: 0 0 0 15px black; */
+.carousel img, a {
+  border-radius: 10px;
+  width: 16em;
+  height: 10em;
+  object-fit: cover;
   margin-right: 50px;
 }
 
-.bloco-1 {
-  order: 0;
-  /* flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto; */
-  flex: 0 1 auto;
-  align-self: flex-end;
-
-  /* indiferente: */
-  background-color: #96C4C4;
+.carousel p {
+  display: flex;
+  font-family: 'bellerose';
+  justify-content: center;
+  margin-top: 1em;
+  color: rgb(255, 255, 255);
+  font-size: 10px;
+  font-weight: bold;
 }
 
-.bloco-2 {
-  order: 0;
-  /* flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto; */
-  flex: 0 1 auto;
-  align-self: flex-end;
-
-  /* indiferente: */
-  background-color: #96C4C4;
+.carousel h2 {
+  display: flex;
+  font-family: 'bellerose';
+  justify-content: center;
+  margin-top: -4em;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: bold;
 }
 
-.bloco-3 {
-  order: 0;
-  /* flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto; */
-  flex: 0 1 auto;
-  align-self: flex-end;
-
-  /* indiferente: */
-  background-color: #96C4C4 ;
+.carousel h1 {
+  display: flex;
+  font-family: 'bellerose';
+  justify-content: center;
+  margin-top: -4em;
+  color: rgb(255, 255, 255);
+  /* font-size: 15px; */
+  /* font-weight: bold; */
 }
-
-.bloco-1, .bloco-2, .bloco-3{
-  /* indiferente: */
-  height: 80px;
-  width: 120px;
-  text-align: center;
-  font-size: 40px;
-  font-family: 'Courier New', Courier, monospace;
-  border-radius: 10px;
-}
-

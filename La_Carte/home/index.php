@@ -60,12 +60,28 @@
 <!-- Carousel -->
     <center>
       <div class="carousel">
+        <h1>Promoções Diárias</h1>
         <div class="fotosCarousel">
-          <a href=""><img src="../img/bebida.jpg"></a>
-          <a href=""><img src="../img/combo.jpg"></a>
-          <a href=""><img src="../img/hamburguer.jpg"></a>
-          <a href=""><img src="../img/pizza2.jpg"></a>
-          <a href=""><img src="../img/sobremesa.jpg"></a>
+          <a href=""><img src="../img/bebida.jpg">
+              <h2>Segunda-Feira</h2>
+              <p>Na compra de uma pizza GG ganhe um refrigerante 1,5L</p>
+              </a>
+          <a href=""><img src="../img/combo.jpg">
+              <h2>Terça-Feira</h2>
+              <p>Todos os combos com 20% de desconto</p>
+              </a>
+          <a href=""><img src="../img/hamburguer.jpg">
+              <h2>Quarta-Feira</h2>
+              <p>Hamburguer + Batata M só R$ 23,00</p>
+              </a>
+          <a href=""><img src="../img/pizza2.jpg">
+              <h2>Quinta-Feira</h2>
+              <p>Todas as pizzas em dobro</p>
+              </a>
+          <a href=""><img src="../img/sobremesa.jpg">
+              <h2>Sexta-Feira</h2>
+              <p>Sobremesas a partir de R$ 15,99</p>
+              </a>
         </div>
       </div>
     </center>
