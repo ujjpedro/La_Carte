@@ -251,50 +251,13 @@
   /* width: 400px; - usamos no flex-shrink*/
 }
 
-/* #carouselExampleCaptions{
-  max-width: 90%;
-}
-
-.carousel-control-prev-icon{
-  background-color: #000000;
-  border-radius: 15%;
-  padding: 1.2em;
-}
-
-.carousel-control-next-icon{
-  background-color: #000000;
-  border-radius: 15%;
-  padding: 1.2em;
-}
-
-.carousel-item img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.carousel-item{
-  width: 25em;
-  height: 15em;
-}
-
-.carousel-inner{
-    border-radius: 5px;
-}
-
-.carousel-caption h2, p{
-  font-family: 'bellerose';
-  align-items: center;
-  color: #ffffff;
-} */
-
 .carousel{
   display: flex;
   align-items: center;
-  margin-top: 4em;
+  margin-top: -3.5em;
   /* max-width: 25em; */
   /* width: 1000px; */
-  height: 300px;
+  height: 270px;
   overflow-x: scroll;
   overflow-y: hidden;
   background-color: #590202;
@@ -321,9 +284,10 @@
 .fotosCarousel {
   display: flex;
   flex-direction: row;
+  margin-top: 1.5em;
 }
 
-.carousel img, a {
+.fotosCarousel img{
   border-radius: 10px;
   width: 16em;
   height: 10em;
@@ -331,13 +295,31 @@
   margin-right: 50px;
 }
 
-.carousel p {
+.fotosCarousel a {
+  border-radius: 10px;
+  width: 16em;
+  height: 10em;
+  object-fit: cover;
+  margin-right: 50px;
+}
+
+.fotosCarousel p {
   display: flex;
   font-family: 'bellerose';
   justify-content: center;
-  margin-top: 1em;
+  margin-top: -1em;
   color: rgb(255, 255, 255);
   font-size: 10px;
+  font-weight: bold;
+}
+
+.fotosCarousel h3 {
+  display: flex;
+  font-family: 'bellerose';
+  justify-content: center;
+  margin-top: -4em;
+  color: rgb(255, 255, 255);
+  /* font-size: 15px; */
   font-weight: bold;
 }
 
@@ -345,18 +327,12 @@
   display: flex;
   font-family: 'bellerose';
   justify-content: center;
-  margin-top: -4em;
   color: rgb(255, 255, 255);
-  font-size: 15px;
-  font-weight: bold;
 }
 
-.carousel h1 {
-  display: flex;
+.tituloCarousel {
   font-family: 'bellerose';
   justify-content: center;
-  margin-top: -4em;
+  margin-top: 4em;
   color: rgb(255, 255, 255);
-  /* font-size: 15px; */
-  /* font-weight: bold; */
 }
