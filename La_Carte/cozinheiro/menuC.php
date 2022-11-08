@@ -113,17 +113,15 @@ nav{
 }
 </style>
     <header>
-        <a class="ftlogo" href="#"><img src="../img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; display: inline-block;"></a>
+        <a class="ftlogo" href="mesas.php"><img src="../img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; display: inline-block;"></a>
         <input type="checkbox" id="check">
             <label for="check">
-                <img src="../img/menu.svg" alt="" style="width: 2em; cursor: pointer; display: inline-block; margin-bottom: 1em;">
+                <img src="../img/menu.svg" alt="" style="width: 2em; cursor: pointer; display: inline-block;">
             </label>
         <nav>
             <center>
             <ul>
-                <li><a href="edit.php" class="menu" style="margin-top: 5em;">Editar <br> Categorias</a></li>
-                <li><a href="editP.php" class="menu" style="margin-top: 5em; margin-right: 0.5em;">Editar Pratos</a></li>
-                <li><a href="mesas.php" class="menu" style="margin-top: 5em;">Editar Mesas</a></li>
+                <li><a href="mesas.php" class="menu" style="margin-top: 1em;">Mesas</a></li>
                 <hr>
                 <li><a href="controle/controleLoginG.php" class="menu" style="margin-top: 1em;">Sair</a></li>
             </ul>

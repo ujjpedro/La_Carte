@@ -56,7 +56,7 @@
                     <br>
                     <form method="POST" action="https://api.staticforms.xyz/submit">
                     
-                    <label for="message">Comentário/Reclamação:</label>                      
+                    <label for="message" style="margin-left: 9%;">Comentário/Reclamação:</label>                      
                     <div class="form">
                             <textarea name="message" placeholder="Escreva aqui..." id="message" cols="31" rows="6" required autocomplete="off"></textarea>
                     </div>

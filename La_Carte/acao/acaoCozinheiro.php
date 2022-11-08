@@ -8,7 +8,7 @@ $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
         $id = isset($_GET['id']) ? $_GET['id'] : 0;
         $cozinheiro = new Cozinheiro($id, $_POST['nome'], $_POST['dataNasc'], $_POST['cpf'], $_POST['email'], $_POST['senha']);     
         $cozinheiro->excluir();
-        header("location:../tabelas/TabCozinheiro.php");
+        header("location:../cozinheiro/loginC.php");
     }
 
 $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
@@ -19,12 +19,12 @@ $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
         if ($id == 0){
             $cozinheiro = new Cozinheiro("", $_POST['nome'], $_POST['dataNasc'], $_POST['cpf'], $_POST['email'], $_POST['senha']);     
             $cozinheiro->inserir();
-            header("location:../tabelas/TabCozinheiro.php");
+            header("location:../cozinheiro/loginC.php");
         }else {
             $cozinheiro = new Cozinheiro($_POST['id'], $_POST['nome'], $_POST['dataNasc'], $_POST['cpf'], $_POST['email'], $_POST['senha']);
             $cozinheiro->editar();
         }    
-        header("location:../tabelas/TabCozinheiro.php");    
+        header("location:../cozinheiro/loginC.php");    
     }catch(Exception $e){
         echo "<h1>Erro ao cadastrar o Cozinheiro.<h1>
         <br> Erro: <br>".$e->getMessage();

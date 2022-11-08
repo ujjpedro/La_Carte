@@ -44,7 +44,7 @@
                             else echo 0; ?>">
     
                             <label for="nome">Nome:</label><br>
-                                <input require="true" type="text" name="nome" id="nome" placeholder="insira seu nome" 
+                                <input require="true" type="text" name="nome" id="nome" placeholder="Insira seu nome" 
                                 value="<?php if ($acao == "editar") echo $dados[0]['nome'];?>">
                                 <br><br>
 
@@ -54,12 +54,12 @@
                                 <br><br>    
 
                             <label for="email">Email:</label><br>
-                                <input require="true" type="text" name="email" id="email" placeholder="insira seu email" 
+                                <input require="true" type="text" name="email" id="email" placeholder="Insira seu email" 
                                 value="<?php if ($acao == "editar") echo $dados[0]['email'];?>">
                                 <br><br>
                                 
                             <label for="senha">Senha:</label><br>
-                                <input require="true" type="text" name="senha" id="senha" placeholder="insira sua senha" 
+                                <input require="true" type="password" name="senha" id="senha" placeholder="Insira sua senha" 
                                 value="<?php if ($acao == "editar") echo $dados[0]['senha'];?>">    
                         </div>
                             <br><br>

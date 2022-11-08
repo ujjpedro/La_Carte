@@ -54,7 +54,7 @@
             while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {  
       ?>
         <div>
-        <a href="pratos/indexP.php?acao=ver&id=<?php echo $linha['id'];?>">
+        <a href="pratos/indexP.php?acao=ver&id=<?php echo $linha['id'];?>&mesa=<?php echo $mesaid?>">
           <img src="<?php echo $linha['imagem']?>">
         </a>
             <p style="display: inline-block;"><?php echo $linha['nome'];?></p>

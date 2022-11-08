@@ -14,7 +14,8 @@
     <title>Avaliar o Prato</title>
     <style>
         .estrelas{
-            margin-left: 20%;
+            display: flex;
+            justify-content: center;
         }
 
         .estrelas input[type=radio]{

@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <?php 
     require_once "../classes/autoload.php";
-    $title = "Pratos";
+    $title = "Promoções | Excluir";
     include_once "../conf/default.inc.php";
     require_once "../conf/Conexao.php";
-    $imagem = isset($_GET['imagem']) ? $_GET['imagem'] : "";
-    $nome = isset($_GET['nome']) ? $_GET['nome'] : "";
-    $gerente = isset($_GET['gerente_id']) ? $_GET['gerente_id'] : "";
     $procurar = isset($_POST["procurar"]) ? $_POST["procurar"] : ""; 
     $cnst = isset($_POST['cnst']) ? $_POST['cnst'] : 1;
 ?>
@@ -15,18 +12,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilos1.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-    <title><?php echo $title ?></title>
+    <title><?php $title ?></title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="../css/pratos.css">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> -->
-    <script>
-        function excluirRegistro(url){
-            if (confirm("Confirma Exclusão?"))
-                location.href = url;
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <style>
       body{
         background-color: #FFFAFA;
@@ -38,11 +29,21 @@
         src: url(../fonts/bellerose/Bellerose.ttf);
       }
 
-      .add{
+      .ms{
         background-color: #590202;
-        opacity: 80%;
-        border-radius: 10px;
-        padding: 5%;
+        margin-bottom: 10%;
+        padding: 7%;
+        max-width: 98%;
+        border-radius: 15px;
+      }
+
+      .texto{
+        font-family: 'bellerose';
+        align-items: left;
+        color: white;
+        text-decoration: none;
+        margin-bottom: 2%;
+        font-size: 20px;
       }
 
       .conf{
@@ -89,12 +90,7 @@
           font-family: 'bellerose';
         }
       .popup .close {
-          /* position: absolute; */
-          /* top: 5px;
-          right: 15px; */
           transition: all 200ms;
-          /* font-size: 30px; */
-          /* font-weight: bold; */
           text-decoration: none;
           color: white;
         }
@@ -114,33 +110,35 @@
   </head>
   <body>
     <?php
-      require_once "menuG.php";
+        require_once "menuG.php";
     ?>
-    <h1>Pratos</h1>
-      <section class="categorias">
-        <?php
-            $lista = Pratos::listar($cnst, $procurar);
-            foreach ($lista as $linha) {
-        ?>
-        <div>
-          <img src="<?php echo $linha['imagem']?>">
-            <p class="textoCategoria"><?php echo $linha['nome'];?>&ensp;&ensp;<?php echo $linha['preco'];?>&ensp;&ensp;
-            <a href='../cadastro/cadPrato.php?acao=editar&id=<?php echo $linha['id'];?>'>
-            <img src='../img/editar.svg' style="width: 1em; display: inline-block;"></a>&ensp;
-            <a href="../acao/acaoPrato.php?acao=excluir&id=<?php echo $linha['id'];?>"><img src='../img/excluir.svg' style='width: 1em; display: inline-block;'></a>
+    <br>
+    <h1>Promoções</h1>
+    <br>
+      <section class="carrinho">
+      <?php
+          $lista = Promo::listar($cnst, $procurar);
+          foreach ($lista as $linha) {
+      ?>
+      <div class="ms">
+          <p class="texto">Dia: <?php echo $linha['dia'];?></p>
+          <p class="texto">Descrição: <?php echo $linha['descricao'];?></p>
+          <br>
+          <a href="../acao/acaoPromo.php?acao=excluir&id=<?php echo $linha['id'];?>"><img src="../img/excluir2.svg" style='width: 8%; margin-left: 88%; display: inline;'></a>
 
-            <!-- <?php echo " <a href=javascript:excluirRegistro('../acao/acaoPrato.php?acao=excluir&id={$linha['id']}')>
-            <img src='../img/excluir.svg' style='width: 1em; display: inline-block;'></a>"; ?> -->
-            </p>
-        </div>
-        <?php } ?>
-        <div class="add">
-          <center>
-            <a href="../cadastro/cadPrato.php">
-              <img src="../img/plus.svg" class="text-center" style="width: 3em; height: 3em; opacity: 60%;">
-            </a>
-          </center>
-        </div>
-      </section>
+          <!-- <a href="#popup1"><img src="../img/excluir2.svg" style='width: 8%; margin-left: 88%; display: inline;'></a>
+          <div id="popup1" class="overlay">
+            <div class="popup">
+                <center>
+                  <h2>Deseja excluir o item?</h2>
+                  <br>
+                  <button class="conf"><a class="close" href='../acao/acaoPromo.php?acao=excluir&id=<?php echo $linha['id'];?>'>Sim</a></button>
+                  <button class="conf"><a class="close" href="#">Não</a></button>
+                </center>
+              </div>
+          </div> -->
+      </div>
+      <?php } ?>
+    </section>
   </body>
 </html>

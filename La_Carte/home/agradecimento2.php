@@ -45,8 +45,7 @@
                     <br>
                     <form method="POST" action="https://api.staticforms.xyz/submit">
                     <div class="form">
-                        <center>
-                        <p style="font-weight: lighter; margin-right: 10%; font-size: 2em;">Obrigado por <br>
+                        <p style="font-weight: lighter; font-size: 2em;" class="text-center">Obrigado por <br>
                            nos avaliar!
                         </p>
                         <textarea hidden name="message" placeholder="Escreva aqui..." id="message" cols="31" rows="6" 

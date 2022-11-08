@@ -3,7 +3,7 @@ require_once("../classes/autoload.php");
 include_once "../conf/default.inc.php";
 require_once "../conf/Conexao.php";
 
-$pathToSave = "../img/";
+$pathToSave = "../gerente/img/";
     if ($_FILES) { // Verificando se existe o envio de arquivos.
         if ($_FILES['imagem']) { // Verifica se o campo não está vazio.
             $dir = $pathToSave; // Diretório que vai receber o arquivo.
@@ -15,7 +15,7 @@ $pathToSave = "../img/";
                 die;
             }
             move_uploaded_file($tmpName, $dir.$name);
-            $imagem = "../img/".$_FILES['imagem']['name'];
+            $imagem = "../gerente/img/".$_FILES['imagem']['name'];
         }  
     }
 

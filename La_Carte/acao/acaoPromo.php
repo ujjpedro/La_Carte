@@ -22,29 +22,27 @@ $pathToSave = "../gerente/img/";
 $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
     if ($acao == "excluir"){
         $id = isset($_GET['id']) ? $_GET['id'] : 0;
-        $prato = new Pratos($id, $imagem, $_POST['nome'], $_POST['ingredientes'], $_POST['descricao'], $_POST['preco'], 
-        $_POST['categorias_id'], $_POST['gerente_id']);     
-        $prato->excluir();
-        header("location:../gerente/editP.php");
+        $promo = new Promo($id, $_POST['dia'], $imagem, $_POST['descricao'], $_POST['gerente_id'], $_POST['pratos_id']);     
+        $promo->excluir();
+        header("location:../gerente/ExPromo.php");
     }
 
 $acao = isset($_POST['acao']) ? $_POST['acao'] : "";
     if ($acao == "salvar"){
         $id = isset($_POST['id']) ? $_POST['id'] : "";
+
         try{
         if ($id == 0){
-            $prato = new Pratos("", $imagem, $_POST['nome'], $_POST['ingredientes'], $_POST['descricao'], $_POST['preco'], 
-            $_POST['categorias_id'], $_POST['gerente_id']);     
-            $prato->inserir();
-            header("location:../gerente/editP.php");
+            $promo = new Promo("", $_POST['dia'], $imagem, $_POST['descricao'], $_POST['gerente_id'], $_POST['pratos_id']);     
+            $promo->inserir();
+            header("location:../gerente/edit.php");
         }else {
-            $prato = new Pratos($_POST['id'], $imagem, $_POST['nome'], $_POST['ingredientes'], $_POST['descricao'], $_POST['preco'], 
-            $_POST['categorias_id'], $_POST['gerente_id']);
-            $prato->editar();
+            $promo = new Promo($_POST['id'], $_POST['dia'], $imagem, $_POST['descricao'], $_POST['gerente_id'], $_POST['pratos_id']);
+            $promo->editar();
         }    
-        header("location:../gerente/editP.php");    
+        header("location:../gerente/edit.php");    
     }catch(Exception $e){
-        echo "<h1>Erro ao cadastrar o Prato.<h1>
+        echo "<h1>Erro ao cadastrar a Promoção.<h1>
         <br> Erro: <br>".$e->getMessage();
     }     
 }

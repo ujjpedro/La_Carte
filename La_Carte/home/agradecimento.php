@@ -46,8 +46,7 @@
                     <br>
                     <form method="POST" action="index.php">
                     <div class="form">
-                        <center>
-                        <p style="font-weight: lighter; margin-right: 10%; font-size: 2em;">Obrigado por <br>
+                        <p style="font-weight: lighter; font-size: 2em;" class="text-center">Obrigado por <br>
                            nos avaliar!
                         </p>
                     </div>

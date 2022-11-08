@@ -54,17 +54,27 @@ header{
     width: 100%;
 }
 
+.mesa{
+    border: 0.1em solid #FF9045;
+    border-radius: 0.5em;
+    padding: 0.2em;
+}
+
+.mesa:hover{
+    color: #D97904;
+}
+
 ul{
     padding: 5px;
     list-style: none;
     position: relative;
-    margin-top: 50%;
+    margin-top: 90%;
     width: 100%;
     display: inline-block;
 }
 
 label{
-    left: 35%;
+    left: 6%;
     position: relative;
     display: inline;
 }
@@ -112,20 +122,36 @@ nav{
     }
 }
 </style>
+    <?php 
+        require_once "../classes/autoload.php";
+        include_once "../conf/default.inc.php";
+        require_once "../conf/Conexao.php";
+        $procurar = isset($_POST["procurar"]) ? $_POST["procurar"] : ""; 
+        $cnst = isset($_POST['cnst']) ? $_POST['cnst'] : 1;
+
+        $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
+        if ($acao == 'ver'){
+            $mesaid = isset($_GET['mesa']) ? $_GET['mesa'] : "";
+        if ($mesaid > 0)
+            $dados = Mesa::listar(1, $mesaid);
+        }
+    ?>
     <header>
-        <a class="ftlogo" href="#"><img src="../img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; display: inline-block;"></a>
+        <a class="ftlogo" href="index.php?acao=ver&mesa=<?php echo $mesaid?>"><img src="../img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; display: inline-block;"></a>
+        <a class="notificacao" href="#"><img src="../img/notificacao.png" style="width: 1.1em; margin-left: 4em; display: inline-block;"></a>
+        <a href="carrinho.php?acao=ver&mesa=<?php echo $mesaid?>"><img src="../img/carrinho.png" style="width: 1em; margin-left: 1em; display: inline-block;"></a>
         <input type="checkbox" id="check">
             <label for="check">
-                <img src="../img/menu.svg" alt="" style="width: 2em; cursor: pointer; display: inline-block; margin-bottom: 1em;">
+                <img src="../img/menu.svg" alt="" style="width: 2em; cursor: pointer; display: inline-block;">
             </label>
         <nav>
             <center>
             <ul>
-                <li><a href="edit.php" class="menu" style="margin-top: 5em;">Editar <br> Categorias</a></li>
-                <li><a href="editP.php" class="menu" style="margin-top: 5em; margin-right: 0.5em;">Editar Pratos</a></li>
-                <li><a href="mesas.php" class="menu" style="margin-top: 5em;">Editar Mesas</a></li>
+                <li class="mesa" style="margin-top: 3em;"><?php echo "Mesa ".$mesaid;?></li>
+                <li><a href="avaliar.php" class="menu" style="margin-top: 5em;">Avaliar</a></li>
+                <li><a href="comentarios.php" class="menu" style="margin-top: 5em;">Reclamações <br>e comentários</a></li>
                 <hr>
-                <li><a href="controle/controleLoginG.php" class="menu" style="margin-top: 1em;">Sair</a></li>
+                <li><a href="../controle/controleLogin.php" class="menu" style="margin-top: 1em;">Sair</a></li>
             </ul>
             </center>
         </nav>

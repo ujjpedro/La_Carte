@@ -14,12 +14,12 @@
 ?>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hambúrgueres</title>
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <link rel="stylesheet" href="p1.css"/>
+    <link rel="stylesheet" href="p1.css">
     <style>
       body{
         background-color: #FFFAFA;
@@ -56,22 +56,20 @@
       p{
         font-family: "bellerose";
       }
-    </style>
-    <script>
-      function addFuncao(qtd){
-            var prd1 = parseInt(document.getElementById("prd1").innerHTML);
-            if ('+1') {
-                document.getElementById("prd1").innerHTML = ++prd1;  
-            }
-        }
 
-      function remFuncao(qtd){
-            var prd1 = parseInt(document.getElementById("prd1").innerHTML);
-            if ('-1' && prd1 > 1) {
-                document.getElementById("prd1").innerHTML = --prd1;
-            }
-        }
-    </script>
+      select{
+        border-radius: 8px;
+        border: none;
+        background-color: #590202;
+        color: white;
+        font-family: 'bellerose';
+        padding-left: 5px;
+        padding-bottom: 5px;
+        font-size: 80%;
+        width: 82%;
+        margin-top: 70%;
+      }
+    </style>
   </head>
   <body>
     <?php
@@ -94,33 +92,53 @@
 
     <?php
         $pdo = Conexao::getInstance(); 
-        $consulta = $pdo->query("SELECT descricao, ingredientes, preco FROM pratos WHERE id = $id"); 
+        $consulta = $pdo->query("SELECT * FROM pratos WHERE id = $id"); 
               while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {  
     ?>
-        
     <div class="descricao">
+      <form action="../../acao/acaoCarrinho.php?acao=ver&id=<?php echo $linha['id'];?>" method="POST">
+
+      <input hidden readonly name="id" id="id" value="<?php if ($acao == "editar") echo $dados[0]['id']; 
+        else echo 0; ?>">
+
         <h4 style="display: inline-block;">Descrição:</h4>
-          <p style="display: inline-block; font-size: 1em;"><?php echo $linha['descricao'];?></p>
+          <input hidden name="personalizar" id="personalizar" style="font-size: 1em;" value="<?php echo "Escreva aqui caso queira mudar algo no prato"?>"><br>
+          <?php echo $linha['descricao'];?>
         <br>
 
         <h4 style="display: inline-block;">Ingredientes:</h4>
-          <p style="display: inline-block; font-size: 1em;"><?php echo $linha['ingredientes'];?></p>
+          <input hidden name="ingredientes" id="ingredientes" style="font-size: 1em;" value="<?php echo $linha['ingredientes'];?>"><br>
+          <?php echo $linha['ingredientes'];?>
         <br>
 
         <h4 style="display: inline-block;">Preço:</h4>
-          <p style="display: inline-block; font-size: 1em;"><?php echo "R$ ". $linha['preco'];?></p>
+          <input hidden name="preco" id="preco" style="font-size: 1em;" value="<?php echo $linha['preco'];?>"><br>
+          <?php echo "R$ ". $linha['preco'];?>
 
         <h4>Quantidade:</h4>
-          <h4 id="prd1">1</h4>
+          <input hidden type="number" name="prd1" id="prd1" value="1"> 
+          <h4 id="prd1" name="prd1">1</h4>
     </div>
-      <div class="btn">
-        <button class="plus" onclick="addFuncao('+1')" class="prd1"><img src="../../img/plus.svg" alt=""></button>
-        <button class="dash" onclick="remFuncao('-1')"><img src="../../img/dash.svg" alt=""></button>
-      </div>
+      <br>
     <?php
                     }
     ?>
-      <button class="fim">Adicionar</button>
-    <script src="../../home/navMobile.js"></script>
+    <center>
+        <select name="mesa_id" id="mesa_id">
+          <?php
+            $pdo = Conexao::getInstance();
+            $consulta = $pdo->query("SELECT id, nome FROM mesa");
+            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) { ?>
+            <option value="<?php echo $linha['id']?>">
+            <?php echo $linha['nome'];?>
+            </option>
+          <?php } ?>
+        </select>
+    </center>
+
+    <input hidden readonly name="pratos_id" id="pratos_id" value="<?php echo $id?>">
+
+      <button name="acao" id="acao" type="submit" value="salvar" class="fim">Adicionar</button>
+    </form>
   </body>
 </html>

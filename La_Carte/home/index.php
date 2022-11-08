@@ -6,6 +6,13 @@
     require_once "../conf/Conexao.php";
     $procurar = isset($_POST["procurar"]) ? $_POST["procurar"] : ""; 
     $cnst = isset($_POST['cnst']) ? $_POST['cnst'] : 1;
+
+    $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
+        if ($acao == 'ver'){
+            $mesaid = isset($_GET['mesa']) ? $_GET['mesa'] : "";
+        if ($mesaid > 0)
+            $dados = Mesa::listar(1, $mesaid);
+        }
 ?>
 <html lang="pt-br">
   <head>
@@ -14,8 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php $title ?></title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="../css/estilos.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/estilos1.css">
     <style>
       body{
         background-color: #FFFAFA;
@@ -46,45 +52,35 @@
             foreach ($lista as $linha) {
         ?>
         <div>
-          <a href="../categorias/indexPratos.php?acao=ver&id=<?php echo $linha['id'];?>">
+          <a href="../categorias/indexPratos.php?acao=ver&id=<?php echo $linha['id'];?>&mesa=<?php echo $mesaid?>">
             <img src="<?php echo $linha['imagem']?>">
           </a>
-            <p class="textoCategoria"><?php echo $linha['nome'];?></p>
+            <p class="textoCategoria" style="margin-top: -0.7em;"><?php echo $linha['nome'];?></p>
           </a>
         </div>
         <?php } ?>
       </section>
-    
-<!-- Carousel -->
-    <center>
+
+       <!-- Carousel -->
+       <center>
       <div class="tituloCarousel">
         <h2>Promoções Diárias</h2>
           <div class="carousel">
             <div class="fotosCarousel">
-              <a href=""><img src="../img/bebida.jpg">
-                  <h3>Segunda-Feira</h3>
-                  <p>Na compra de uma pizza GG ganhe um refrigerante 1,5L</p>
+              <?php
+                  $lista = Promo::listar($cnst, $procurar);
+                  foreach ($lista as $linha) {
+              ?>
+              <a href="../categorias/pratos/indexP.php?acao=ver&id=<?php echo $linha['pratos_id']?>">
+                  <img src="<?php echo $linha['imagem']?>">
+                  <h3><?php echo $linha['dia']?></h3>
+                  <p><?php echo $linha['descricao']?></p>
                   </a>
-              <a href=""><img src="../img/combo.jpg">
-                  <h3>Terça-Feira</h3>
-                  <p>Todos os combos com 20% de desconto</p>
-                  </a>
-              <a href=""><img src="../img/hamburguer.jpg">
-                  <h3>Quarta-Feira</h3>
-                  <p>Hamburguer + Batata M só R$ 23,00</p>
-                  </a>
-              <a href=""><img src="../img/pizza2.jpg">
-                  <h3>Quinta-Feira</h3>
-                  <p>Todas as pizzas em dobro</p>
-                  </a>
-              <a href=""><img src="../img/sobremesa.jpg">
-                  <h3>Sexta-Feira</h3>
-                  <p>Sobremesas a partir de R$ 15,99</p>
-                  </a>
+              <?php } ?>
             </div>
           </div>
       </div>
     </center>
-
+    <br><br>
   </body>
 </html>

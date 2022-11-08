@@ -45,10 +45,7 @@
                     <br>
                     <form method="POST" action="https://api.staticforms.xyz/submit">
                     <div class="form">
-                        <center>
-                        <p style="font-weight: lighter; margin-right: 10%; font-size: 2em;">Agradecemos a <br>
-                           avaliação!
-                        </p>
+                        <p style="font-weight: lighter; font-size: 2em;" class="text-center">Agradecemos a avaliação!</p>
                         <textarea hidden name="message" placeholder="Escreva aqui..." id="message" cols="31" rows="6" 
                             required autocomplete="off"><?php echo $prato.", \n"; if ($avaliar == 1) { 
                                 echo "1 Estrela :("; 

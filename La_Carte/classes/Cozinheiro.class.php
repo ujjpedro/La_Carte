@@ -75,6 +75,25 @@
             return parent::buscar($sql, $par);
         }
 
+        public static function efetuarLogin($email, $senha){
+            $sql = "SELECT id, nome FROM cozinheiro WHERE email = :email AND senha = :senha";
+            $parametros = array(
+                ':email' => $email,
+                ':senha' => $senha,
+            );
+            session_set_cookie_params(0);
+            session_start();
+            if (self::buscar($sql, $parametros)) {
+                $_SESSION['id'] = self::buscar($sql, $parametros)[0]['id'];
+                $_SESSION['nome'] = self::buscar($sql, $parametros)[0]['nome'];
+                return true;
+            } else {
+                $_SESSION['id'] = "";
+                $_SESSION['nome'] = "";
+                return false;
+            }
+        }
+
         public function __toString(){
             $str = parent::__toString();
             $str .= "<br>Data de Nascimento: ".$this->getDataN().

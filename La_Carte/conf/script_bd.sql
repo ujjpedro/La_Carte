@@ -63,7 +63,7 @@ ENGINE = InnoDB;
 -- Table `menu`.`pratos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `menu`.`pratos` (
-  `idPrat` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `imagem` VARCHAR(200) NULL,
   `nome` VARCHAR(45) NULL,
   `ingredientes` VARCHAR(45) NULL,
@@ -106,45 +106,77 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `menu`.`pedidos` (
   `idPed` INT NOT NULL AUTO_INCREMENT,
+  `nome_prat` VARCHAR(45) NULL,
   `descricao` VARCHAR(200) NULL,
-  `cozinheiro_id` INT NOT NULL,
-  `cliente_id` INT NOT NULL,
+  `preco` DECIMAL(16,2) NULL,
+  `quant` INT NULL,
+  `mesa_id` INT NOT NULL,
   PRIMARY KEY (`idPed`),
-  INDEX `fk_pedidos_cozinheiro1_idx` (`cozinheiro_id` ASC) VISIBLE,
-  INDEX `fk_pedidos_cliente1_idx` (`cliente_id` ASC) VISIBLE,
-  CONSTRAINT `fk_pedidos_cozinheiro1`
-    FOREIGN KEY (`cozinheiro_id`)
-    REFERENCES `menu`.`cozinheiro` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pedidos_cliente1`
-    FOREIGN KEY (`cliente_id`)
-    REFERENCES `menu`.`cliente` (`id`)
+  INDEX `fk_pedidos_mesa1_idx` (`mesa_id` ASC),
+  CONSTRAINT `fk_pedidos_mesa1`
+    FOREIGN KEY (`mesa_id`)
+    REFERENCES `menu`.`mesa` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
+ENGINE = InnoDB
 
 -- -----------------------------------------------------
--- Table `menu`.`pedidos_has_pratos`
+-- Table `menu`.`mesa`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `menu`.`pedidos_has_pratos` (
-  `pedidos_idPed` INT NOT NULL,
-  `pratos_idPrat` INT NOT NULL,
-  PRIMARY KEY (`pedidos_idPed`, `pratos_idPrat`),
-  INDEX `fk_pedidos_has_pratos_pratos1_idx` (`pratos_idPrat` ASC) VISIBLE,
-  INDEX `fk_pedidos_has_pratos_pedidos1_idx` (`pedidos_idPed` ASC) VISIBLE,
-  CONSTRAINT `fk_pedidos_has_pratos_pedidos1`
-    FOREIGN KEY (`pedidos_idPed`)
-    REFERENCES `menu`.`pedidos` (`idPed`)
+CREATE TABLE IF NOT EXISTS `menu`.`mesa` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+
+-- -----------------------------------------------------
+-- Table `menu`.`carrinho`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `menu`.`carrinho` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `personalizar` VARCHAR(200) NULL,
+  `ingredientes` VARCHAR(200) NULL,
+  `preco` DECIMAL(16,2) ZEROFILL NULL,
+  `quant` INT NULL,
+  `mesa_id` INT NOT NULL,
+  `pratos_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_carrinho_mesa1_idx` (`mesa_id` ASC) VISIBLE,
+  INDEX `fk_carrinho_pratos1_idx` (`pratos_id` ASC) VISIBLE,
+  CONSTRAINT `fk_carrinho_mesa1`
+    FOREIGN KEY (`mesa_id`)
+    REFERENCES `menu`.`mesa` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pedidos_has_pratos_pratos1`
-    FOREIGN KEY (`pratos_idPrat`)
-    REFERENCES `menu`.`pratos` (`idPrat`)
+  CONSTRAINT `fk_carrinho_pratos1`
+    FOREIGN KEY (`pratos_id`)
+    REFERENCES `menu`.`pratos` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+
+
+CREATE TABLE IF NOT EXISTS `menu`.`promocao` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `dia` VARCHAR(45) NULL,
+  `imagem` VARCHAR(200) NULL,
+  `descricao` VARCHAR(200) NULL,
+  `gerente_id` INT NOT NULL,
+  `pratos_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_promocao_gerente1_idx` (`gerente_id` ASC),
+  INDEX `fk_promocao_pratos1_idx` (`pratos_id` ASC),
+  CONSTRAINT `fk_promocao_gerente1`
+    FOREIGN KEY (`gerente_id`)
+    REFERENCES `menu`.`gerente` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_promocao_pratos1`
+    FOREIGN KEY (`pratos_id`)
+    REFERENCES `menu`.`pratos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

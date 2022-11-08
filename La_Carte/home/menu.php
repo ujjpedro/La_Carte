@@ -54,12 +54,6 @@ header{
     width: 100%;
 }
 
-.mesa{
-    border: 0.1em solid #FF9045;
-    border-radius: 0.5em;
-    padding: 0.5em;
-}
-
 .mesa:hover{
     color: #D97904;
 }
@@ -122,18 +116,32 @@ nav{
     }
 }
 </style>
+    <?php 
+        require_once "../classes/autoload.php";
+        include_once "../conf/default.inc.php";
+        require_once "../conf/Conexao.php";
+        $procurar = isset($_POST["procurar"]) ? $_POST["procurar"] : ""; 
+        $cnst = isset($_POST['cnst']) ? $_POST['cnst'] : 1;
+
+        $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
+        if ($acao == 'ver'){
+            $mesaid = isset($_GET['mesa']) ? $_GET['mesa'] : "";
+        if ($mesaid > 0)
+            $dados = Mesa::listar(1, $mesaid);
+        }
+    ?>
     <header>
-        <a class="ftlogo" href="#"><img src="../img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; display: inline-block;"></a>
-        <a class="notificacao" href="#"><img src="../img/notificacao.png" style="width: 1.1em; margin-left: 5em; display: inline-block;"></a>
-        <a href="carrinho.php"><img src="../img/carrinho.png" style="width: 1em; margin-left: 1em; display: inline-block;"></a>
+        <a class="ftlogo" href="index.php?acao=ver&mesa=<?php echo $mesaid?>"><img src="../img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; display: inline-block;"></a>
+        <a class="notificacao" href="#"><img src="../img/notificacao.png" style="width: 1.1em; margin-left: 4em; margin-bottom: 1.5em; display: inline-block;"></a>
+        <a href="carrinho.php?acao=ver&mesa=<?php echo $mesaid?>"><img src="../img/carrinho.png" style="width: 1em; margin-bottom: 1.5em; margin-left: 1em; display: inline-block;"></a>
         <input type="checkbox" id="check">
             <label for="check">
-                <img src="../img/menu.svg" alt="" style="width: 2em; cursor: pointer; display: inline-block;">
+                <img src="../img/menu.svg" alt="" style="width: 2em; cursor: pointer; display: inline-block; margin-bottom: 1em;">
             </label>
         <nav>
             <center>
             <ul>
-                <li><a href="#" class="mesa">Mesa 1</a></li>
+                <li class="mesa" style="margin-top: 3em;"><?php echo "Mesa ".$mesaid;?></li>
                 <li><a href="avaliar.php" class="menu" style="margin-top: 5em;">Avaliar</a></li>
                 <li><a href="comentarios.php" class="menu" style="margin-top: 5em;">Reclamações <br>e comentários</a></li>
                 <hr>

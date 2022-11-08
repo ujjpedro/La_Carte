@@ -122,10 +122,24 @@ nav{
     }
 }
 </style>
+<?php 
+        require_once "../classes/autoload.php";
+        include_once "../conf/default.inc.php";
+        require_once "../conf/Conexao.php";
+        $procurar = isset($_POST["procurar"]) ? $_POST["procurar"] : ""; 
+        $cnst = isset($_POST['cnst']) ? $_POST['cnst'] : 1;
+
+        $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
+        if ($acao == 'ver'){
+            $mesaid = isset($_GET['mesa']) ? $_GET['mesa'] : "";
+        if ($mesaid > 0)
+            $dados = Mesa::listar(1, $mesaid);
+        }
+    ?>
     <header>
-        <a class="ftlogo" href="#"><img src="../img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; display: inline-block;"></a>
+        <a class="ftlogo" href="../home/index.php?acao=ver&mesa=<?php echo $mesaid?>"><img src="../img/logo2.png" style="width: 8em; margin-top: 4.2px; margin-left: 1.5em; display: inline-block;"></a>
         <a class="notificacao" href="#"><img src="../img/notificacao.png" style="width: 1.1em; padding-bottom: 30px; margin-left: 6.5em; display: inline-block;"></a>
-        <a class="carrinho" href="#"><img src="../img/carrinho.png" style="width: 1em; padding-bottom: 30px; margin-left: 1em; display: inline-block;"></a>
+        <a class="carrinho" href="../home/carrinho.php?acao=ver&mesa=<?php echo $mesaid?>"><img src="../img/carrinho.png" style="width: 1em; padding-bottom: 30px; margin-left: 1em; display: inline-block;"></a>
         <!-- <input type="checkbox" id="check">
             <label for="check">
                 <img src="../img/menu.svg" alt="" style="width: 2em; padding-bottom: 24px; cursor: pointer; display: inline-block;">
