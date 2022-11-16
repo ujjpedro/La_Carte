@@ -149,7 +149,8 @@
       <?php
         $pdo = Conexao::getInstance();
         $consulta = $pdo->query("SELECT carrinho.id, imagem, nome, personalizar, carrinho.preco, quant, mesa_id FROM pratos, carrinho WHERE pratos.id = carrinho.pratos_id AND mesa_id = $mesaid"); 
-          while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+        $lista = Carrinho::listar($cnst, $procurar);
+        foreach ($consulta as $linha) {
       ?>
       <div class="list"> 
         <img src="<?php echo $linha['imagem']?>">
@@ -171,7 +172,7 @@
           <p class="textoItensCarrinho" style="margin-bottom: 0%;" id="prd1" name="prd1"><?php echo $linha['quant'];?></p>
           <p class="textoItensCarrinho" style="margin-bottom: 1%;">Preço: <?php echo $linha['preco'];?></p>
           <?php $total = $linha['preco'] * $linha['quant'];?>
-          <p class="textoItensCarrinho" style="margin-bottom: 1%;">Total: <?php echo $total;?></p>
+          <p class="textoItensCarrinho" style="margin-bottom: 1%;">Total: R$ <?php echo $total;?></p>
       </div>
       <button name="acao" id="acao" type="submit" value="salvar" class="pedir">Pedir</button>
       </form>
@@ -180,23 +181,22 @@
           <img src='../img/editar2.svg' style="width: 0.8em; display: inline-block;"></a></button>
           <button class="del"><a href="../acao/acaoCarrinho.php?acao=excluir&id=<?php echo $linha['id'];?>&mesa=<?php echo $linha['mesa_id'];?>"><img src='../img/excluir2.svg' style='width: 0.8em; margin-bottom: 0.3em; display: inline-block;'></a></button>
           <!-- <button class="del"><a onclick="confirmar()"><img src='../img/excluir2.svg' style='width: 0.8em; margin-bottom: 0.3em; display: inline-block;'></a></button> -->
-          <!-- Confirma exclusão-->
-          <!-- <div class="confirmar" id="confirmar">
-                    <div class="confirmar-content">
-                        <a>
-                            <span class="close-button" onclick="closeConfirmar()">
-                                &times;
-                            </span>
-                        </a>
-                        <h1>Deseja excluir o item?</h1>
-                        <div class="div-botao-modal">
-                            <a style="text-decoration: none;" href="../acao/acaoCarrinho.php?acao=excluir&id=<?php echo $linha['id'];?>&mesa=<?php echo $linha['mesa_id']?>"><button type="button"class="btn-modal">Sim</button></a>
-                            <a onclick="closeConfirmar()" style="text-decoration: none;"><button type="button" class="btn-modal">Não</button></a>
-                        </div>
-                    </div>
-                </div> -->
       </div>
       <?php } ?>
     </section>
+    <!-- <div class="confirmar" id="confirmar">
+        <div class="confirmar-content">
+            <a>
+                <span class="close-button" onclick="closeConfirmar()">
+                        &times;
+                </span>
+            </a>
+            <h1>Deseja excluir o item?</h1>
+            <div class="div-botao-modal">
+                <a style="text-decoration: none;" href="../acao/acaoCarrinho.php?acao=excluir&id=<?php echo $linha['id'];?>&mesa=<?php echo $linha['mesa_id']?>"><button type="button"class="btn-modal">Sim</button></a>
+                <a onclick="closeConfirmar()" style="text-decoration: none;"><button type="button" class="btn-modal">Não</button></a>
+            </div>
+        </div>
+    </div> -->
   </body>
 </html>
