@@ -16,6 +16,13 @@
         $cliente = new Cliente("", "", "", "", "");
         $dados = $cliente->listar(1, $id);
     }
+
+    $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
+        if ($acao == 'ver'){
+            $mesaid = isset($_GET['mesa']) ? $_GET['mesa'] : "";
+        if ($mesaid > 0)
+            $dados = Mesa::listar(1, $mesaid);
+        }
 ?>
 
 <html lang="pt-br">
@@ -38,7 +45,7 @@
                     <div class="lin"></div> 
                     <br>
                     <div class="form">
-                        <form method="post" action="../acao/acaoCliente.php">
+                        <form method="post" action="../acao/acaoCliente.php?mesa=<?php echo $mesaid?>">
 
                             <input readonly type="hidden" name="id" id="id" value="<?php if ($acao == "editar") echo $dados[0]['id']; 
                             else echo 0; ?>">

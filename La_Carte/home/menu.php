@@ -145,7 +145,7 @@ nav{
                 <li><a href="avaliar.php" class="menu" style="margin-top: 5em;">Avaliar</a></li>
                 <li><a href="comentarios.php" class="menu" style="margin-top: 5em;">Reclamações <br>e comentários</a></li>
                 <hr>
-                <li><a href="../controle/controleLogin.php" class="menu" style="margin-top: 1em;">Sair</a></li>
+                <li><a href="../controle/controleLogin.php?acao=ver&mesa=<?php echo $mesaid?>" class="menu" style="margin-top: 1em;">Sair</a></li>
             </ul>
             </center>
         </nav>
