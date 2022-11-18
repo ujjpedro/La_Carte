@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <?php 
     require_once "../classes/autoload.php";
     $title = "La'Carte";
@@ -82,5 +82,6 @@
       </div>
     </center>
     <br><br>
+    <script src="../assets/js/index.js"></script>
   </body>
 </html>
