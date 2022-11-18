@@ -7,6 +7,17 @@ $acao = isset($_GET['acao']) ? $_GET['acao'] : "";
     if ($acao == "excluir"){
         $idPed = isset($_GET['idPed']) ? $_GET['idPed'] : 0;
         $mesa = isset($_GET['mesa']) ? $_GET['mesa'] : "";
+
+        $array =  array(
+                "id" => $idPed,
+                "status" => "Pronto",
+                "mesa" => $mesa);
+          
+        // encode array to json
+        $json = json_encode($array);
+        //generate json file
+        file_put_contents("../assets/json/pedidos.json", $json);
+        
         $pedir = new Pedir($idPed, $_POST['nome_prat'], $_POST['descricao'], $_POST['preco'], $_POST['prd1'], $_POST['mesa_id']);     
         $pedir->excluir();
         header("location:../cozinheiro/pedidos.php?acao=ver&mesa=$mesa");
