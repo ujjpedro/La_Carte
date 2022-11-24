@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/cad.css">
-    <title>Login</title>
+    <title>Login | Cozinheiro</title>
 </head>
 <body>
     <section class="content-site">

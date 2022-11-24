@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
     require_once "../classes/autoload.php";
-    $title = "Pratos";
+    $title = "Pratos | Editar";
     include_once "../conf/default.inc.php";
     require_once "../conf/Conexao.php";
     $imagem = isset($_GET['imagem']) ? $_GET['imagem'] : "";

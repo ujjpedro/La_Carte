@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../css/estilos1.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet"> -->
-    <title><?php $title ?></title>
+    <title><?php echo $title ?></title>
     <link rel="shortcut icon" href="../img/favicon.ico">
     <script>
         // function excluirRegistro(url){
@@ -165,7 +165,7 @@
           <p class="textoItensCarrinho" style="margin-bottom: 1%;">Descrição: <?php echo $linha['personalizar'];?></p>
 
           <input type="text" hidden name="preco" id="preco" value="<?php echo $linha['preco'];?>">
-          <input type="number" hidden name="prd1" id="prd1" value="<?php echo $linha['quant'];?>">
+          <input type="hidden" name="prd1" id="prd1" value="<?php echo $linha['quant'];?>">
           <input type="text" hidden name="mesa_id" id="mesa_id" value="<?php echo $linha['mesa_id'];?>">
 
           <p class="textoItensCarrinho" style="margin-bottom: 0%; display: inline;">Quantidade:</p>

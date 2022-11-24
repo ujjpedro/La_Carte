@@ -123,7 +123,7 @@ nav{
             <ul>
                 <li><a href="mesas.php" class="menu" style="margin-top: 1em;">Mesas</a></li>
                 <hr>
-                <li><a href="controle/controleLoginG.php" class="menu" style="margin-top: 1em;">Sair</a></li>
+                <li><a href="controle/controleLoginC.php" class="menu" style="margin-top: 1em;">Sair</a></li>
             </ul>
             </center>
         </nav>
